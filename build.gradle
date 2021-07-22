@@ -19,6 +19,19 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '5.2.0' apply false
 }
 
+repositories {
+        // for access from China, you may need to uncomment this line
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://repository.apache.org/content/repositories/snapshots/"
+            mavenContent {
+                snapshotsOnly()
+            }
+        }
+    }
+    
 subprojects {
     apply plugin: 'java'
     apply plugin: 'scala' // optional; uncomment if needed
